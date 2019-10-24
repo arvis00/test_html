@@ -1,0 +1,795 @@
+%button-shared {
+    color: #fff;
+    height: 70px;
+    width: 293px;
+    border-radius: 3px;
+    text-align: center;
+    font-size: 20px;
+}
+
+%heading {
+    color: #fff;
+    width: 100%;
+    font-size: 40px;
+    text-align: center;
+
+    h4 {
+        margin: 0;
+        font-weight: normal;
+
+    }
+
+}
+
+.container {
+    padding: 0 150px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+
+
+%hrLine {
+    width: 87px;
+    height: 4px;
+    background-color: #000000;
+    opacity: 0.14901960784313725;
+}
+
+%descText {
+    color: #fff;
+    text-align: center;
+    font-size: 25px;
+    margin-top: 23px;
+}
+
+%h3 {
+    margin: 0;
+    color: #fff;
+    font-size: 22px;
+    font-weight: normal;
+    text-align: center;
+
+}
+
+%column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 80px;
+    flex-basis: 0;
+    flex-grow: 1;
+
+}
+
+
+
+@mixin circle($color, $width, $height) {
+    border-radius: 50%;
+    background-color: $color;
+    border-color: $color;
+    width: $width;
+    height: $height;
+
+}
+
+
+// -- vars
+$bg-color: #000;
+$default-size: 1em;
+$label-font-size: $default-size / 4;
+$label-font-size-redo: $default-size * 4;
+
+// -- mixins
+@mixin size($width, $height) {
+    height: $height;
+    width: $width;
+}
+
+@mixin draw-progress($progress, $color) {
+    .pie {
+        .half-circle {
+            border-color: $color;
+        }
+
+        .left-side {
+            transform: rotate($progress * 3.6deg);
+        }
+
+        @if $progress <=50 {
+            .right-side {
+                display: none;
+            }
+        }
+
+        @else {
+            clip: rect(auto, auto, auto, auto);
+
+            .right-side {
+                transform: rotate(180deg);
+            }
+        }
+    }
+}
+
+* {
+    box-sizing: border-box;
+}
+
+
+p {
+    margin: 0;
+}
+
+body {
+    margin: 0;
+    letter-spacing: 1px;
+
+
+    .home {
+        background-color: #864F9C;
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-left: 211px;
+            padding-top: 57px;
+            margin-right: 211px;
+            margin-bottom: 142px;
+
+            .logo {
+                height: 37px;
+                width: 118px;
+
+            }
+
+            ul {
+                display: flex;
+                list-style: none;
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
+
+                li {
+                    color: #fff;
+                    padding-left: 50px;
+                }
+            }
+        }
+
+        .heading {
+            @extend %heading;
+        }
+
+        button {
+            @extend %button-shared;
+            background-color: #EB7D4B;
+            margin: 54px 0 146px 0;
+
+            border: #EB7D4B;
+
+        }
+    }
+
+    .services {
+        background-color: #16C2A3;
+
+        .heading {
+            @extend %heading;
+            margin: 116px 0 21px;
+
+        }
+
+        .hrLine {
+            @extend %hrLine;
+        }
+
+        .descText {
+            @extend %descText;
+        }
+
+
+        .servList {
+            margin-top: 122px;
+            display: flex;
+            justify-content: space-between;
+            background-color: #864F9C;
+            padding: 147px 38px 13px 38px;
+            position: relative;
+            margin-bottom: 91px;
+            width: 1138px;
+            // height: 294px;
+
+            img {
+                position: absolute;
+                top: -40px;
+            }
+
+            .column {
+                @extend %column;
+
+                h3 {
+                    @extend %h3;
+                }
+
+                .pencil {
+                    width: 103px;
+                    height: 135px;
+                }
+
+                .cogs {
+                    width: 159px;
+                    height: 126px;
+                }
+
+                .rocket {
+                    width: 117px;
+                    height: 147px;
+                }
+
+                p {
+                    color: #fff;
+                    font-size: 20px;
+                    margin: 0;
+                    text-align: center;
+                    padding-top: 27px;
+
+                }
+            }
+
+            .column:first-child {
+                margin: 0;
+            }
+
+        }
+
+    }
+
+    .team {
+        background-color: #E7F1F8;
+
+        .container {
+            // margin-bottom: 128px;
+            padding: 0 200px 128px;
+
+            .heading {
+                @extend %heading;
+                margin: 116px 0 21px;
+                color: #000000;
+
+            }
+
+            .hrLine {
+                @extend %hrLine;
+                background-color: #BDD1DF;
+                opacity: 0.7490196078431373;
+            }
+
+            .descText {
+                @extend %descText;
+                color: #000000;
+                margin-bottom: 79px;
+            }
+
+            .teamList {
+                display: flex;
+                width: 1040px;
+
+                .column {
+                    @extend %column;
+                    color: #000000;
+
+                    .photo {
+                        @include circle(#878787, 200px, 200px)
+                    }
+
+                    h3 {
+                        @extend %h3;
+                        color: #000000;
+                        margin-top: 40px;
+                        margin-bottom: 13px;
+                        letter-spacing: 0;
+                    }
+
+                    .job-title {
+                        color: rgb(133, 202, 233);
+                        font-size: 18px;
+                        margin-bottom: 26px;
+                    }
+
+                    p {
+                        color: #000;
+                        font-size: 20px;
+                        text-align: center;
+                    }
+
+                    .social-icons {
+                        display: flex;
+                        margin-top: 7px;
+
+                        .circle-social {
+                            @include circle(#BDD1DF, 32px, 32px);
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+
+                            .linkedin {
+                                margin-bottom: 3px;
+                            }
+                        }
+                    }
+
+                }
+
+                .column:first-child {
+                    margin: 0;
+                }
+            }
+
+
+        }
+    }
+
+    .skills {
+        background-color: #FFFFFF;
+
+        .container {
+            // margin-bottom: 128px;
+            padding: 0 220px 119px;
+
+            .heading {
+                @extend %heading;
+                margin: 116px 0 21px;
+                color: #000000;
+
+            }
+
+            .hrLine {
+                @extend %hrLine;
+                background-color: #DFE7ED;
+                opacity: 1;
+            }
+
+            .descText {
+                @extend %descText;
+                color: #000000;
+                margin-bottom: 79px;
+            }
+
+            .skill-list {
+                display: flex;
+
+                .set-size {
+                    font-size: 160px;
+                    display: flex;
+                }
+
+                .charts-container {
+                    &:after {
+                        clear: both;
+                        content: '';
+                        display: table;
+                    }
+                }
+
+                .column {
+                    display: flex;
+                    flex-direction: column;
+
+                    margin-left: 121px;
+                }
+
+                .pie-wrapper {
+                    @include size($default-size, $default-size);
+                    float: left;
+
+                    position: relative;
+
+                    &:nth-child(3n + 1) {
+                        clear: both;
+                    }
+
+                    .pie {
+                        @include size(100%, 100%);
+                        clip: rect(0, $default-size, $default-size, $default-size / 2);
+                        left: 0;
+                        position: absolute;
+                        top: 0;
+
+                        .half-circle {
+                            @include size(100%, 100%);
+                            border: 13px solid #3498db;
+                            border-radius: 50%;
+                            clip: rect(0, $default-size / 2, $default-size, 0);
+                            left: 0;
+                            position: absolute;
+                            top: 0;
+                        }
+                    }
+
+                    .label {
+                        background: $bg-color;
+                        border-radius: 50%;
+                        bottom: $label-font-size-redo / 10;
+                        color: #000;
+                        cursor: default;
+                        display: block;
+                        font-size: $label-font-size;
+                        left: $label-font-size-redo / 10;
+                        line-height: $label-font-size-redo * .70;
+                        position: absolute;
+                        right: $label-font-size-redo / 10;
+                        text-align: center;
+                        top: $label-font-size-redo / 10;
+
+                        .smaller {
+                            color: #000;
+                            font-size: .45em;
+                            padding-bottom: 20px;
+                            vertical-align: super;
+                        }
+                    }
+
+                    .shadow {
+                        @include size(100%, 100%);
+                        border: 13px solid #B8C6C5;
+                        border-radius: 50%;
+                    }
+
+                    &.style-2 {
+                        .label {
+                            background: none;
+                            color: #000;
+
+                            .smaller {
+                                color: #000;
+                            }
+                        }
+                    }
+
+
+
+                    &.progress-90 {
+                        @include draw-progress(90, #5BB7E2);
+                    }
+
+                    &.progress-75 {
+                        @include draw-progress(75, #C7517E);
+                    }
+
+                    &.progress-70 {
+                        @include draw-progress(70, #5BC4A8);
+                    }
+
+                    &.progress-85 {
+                        @include draw-progress(85, #DD8256);
+                    }
+                }
+
+                h3 {
+                    @extend %h3;
+                    color: #000000;
+                    margin-top: 31px;
+                    font-size: 19px;
+                    letter-spacing: 0px;
+
+                }
+
+                .column:first-child {
+                    margin: 0;
+                }
+
+
+
+
+                // .percent {
+
+                //     position: absolute;
+                //     font-size: 45px;
+                //     top: 50px;
+                //     left: 50px;
+
+                //     span {
+                //         font-size: 35px;
+                //     }
+                // }
+
+            }
+
+
+        }
+    }
+
+
+
+    .portfolio {
+        background-color: #FFDD99;
+
+        .container {
+
+            padding: 0 170px 110px;
+
+            .heading {
+                @extend %heading;
+                margin: 116px 0 21px;
+                color: #000000;
+
+            }
+
+            .hrLine {
+                @extend %hrLine;
+                background-color: #E5C37F;
+                opacity: 1;
+            }
+
+            .descText {
+                @extend %descText;
+                color: #000000;
+                margin-bottom: 43px;
+            }
+
+            .button-list {
+                display: flex;
+                margin-bottom: 62px;
+
+                .button {
+                    margin-left: 10px;
+                    background-color: rgb(230, 204, 149);
+                    border-radius: 3px;
+                    border-color: rgb(230, 204, 149);
+                    width: 84px;
+                    height: 38px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
+
+                .button:first-child {
+                    background-color: #fff;
+                }
+            }
+
+            .portfolio__list {
+                display: flex;
+
+                .column {
+                    display: flex;
+                    flex-direction: column;
+                    margin-left: 19px;
+
+                    .block {
+                        margin-top: 64px;
+
+                        h3 {
+                            @extend %h3;
+                            color: #000000;
+                            margin-top: 31px;
+
+                        }
+                    }
+
+                    .block:first-child {
+                        margin: 0;
+                    }
+                }
+
+                .column:first-child {
+                    margin: 0;
+                }
+            }
+
+            button {
+                @extend %button-shared;
+                background-color: #17C1A3;
+                margin-top: 81px;
+
+                border: #17C1A3;
+
+            }
+
+
+        }
+    }
+
+    .comments {
+        background-color: #D74580;
+
+        .container {
+
+            padding: 0 170px 130px;
+
+            .heading {
+                @extend %heading;
+                margin: 116px 0 21px;
+                color: #fff;
+
+            }
+
+            .hrLine {
+                @extend %hrLine;
+                background-color: #000000;
+                opacity: 0.14901960784313725;
+            }
+
+            .descText {
+                @extend %descText;
+                color: #fff;
+                margin-bottom: 71px;
+            }
+
+            .comment__list {
+                display: flex;
+                color: #fff;
+                width: 1090px;
+
+                .column {
+                    display: flex;
+                    flex-direction: column;
+                    margin-left: 90px;
+
+                    .block {
+                        margin-top: 144px;
+                        display: flex;
+
+                        .photo {
+                            @include circle(#777777, 96px, 96px);
+                            margin-right: 48px;
+                            flex: 1 0 auto;
+                        }
+
+
+                        .comment--text {
+                            display: flex;
+                            flex-direction: column;
+
+                            p {
+                                font-size: 25px;
+                            }
+
+                            h3 {
+                                @extend %h3;
+                                color: #fff;
+                                margin-top: 28px;
+                                text-align: left;
+
+                            }
+
+                            .job-title {
+                                color: rgb(237, 190, 153);
+                                font-size: 18px;
+                                margin-top: 9px;
+                            }
+                        }
+                    }
+
+                    .block:first-child {
+                        margin: 0;
+                    }
+                }
+
+                .column:first-child {
+                    margin: 0;
+                }
+            }
+        }
+    }
+
+    .contact {
+        background-color: #3C5399;
+
+        .container {
+            // margin-bottom: 128px;
+            padding: 0 220px 115px;
+
+            .heading {
+                @extend %heading;
+                margin: 116px 0 21px;
+                color: #fff;
+
+            }
+
+            .hrLine {
+                @extend %hrLine;
+                background-color: #273971;
+                opacity: 1;
+            }
+
+            .descText {
+                @extend %descText;
+                color: #fff;
+                margin-bottom: 77px;
+            }
+
+            .contact--fields {
+                color: #fff;
+
+                input,
+                textarea {
+                    background-color: #273971;
+                    border-radius: 3px;
+                    border: none;
+
+                        &::placeholder {
+                            color: #fff;
+                            font-size: 17px;
+                            padding-left: 25px;
+
+                        }
+
+
+                }
+
+                .wrap {
+                    display: flex;
+
+                    input {
+                        width: 414px;
+                        height: 56px;
+                        margin-left: 32px;
+                    }
+
+                    .name {
+                        margin: 0;
+                    }
+                }
+
+                .message {
+                    width: 860px;
+                    height: 200px;
+                    margin-top: 27px;
+                    margin-bottom: 59px;
+                    padding-top: 23px;
+
+                    // &::placeholder{
+                    //     padding-bottom: 159px;
+
+                    // }
+                }
+            }
+
+            button {
+                @extend %button-shared;
+                background-color: #2FB9E7;
+
+
+                border: #2FB9E7;
+
+            }
+        }
+    }
+
+    .footer {
+        height: 113px;
+        background-color: #334B8E;
+        color: #fff;
+        text-align: center;
+        padding: 0 152px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+
+        .wrap {
+            display: flex;
+            align-items: center;
+            width: 1175px;
+            justify-content: center;
+
+            .twitter {
+                color: #58B0DB;
+            }
+
+            div {
+                margin-left: 80px;
+                font-size: 27px;
+            }
+
+            div:first-child {
+                margin: 0;
+            }
+        }
+    }
+
+}
