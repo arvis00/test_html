@@ -166,7 +166,7 @@ body {
                     cursor: pointer;
                     border-bottom: 2px solid #864F9C;
 
-                    &:hover{
+                    &:hover {
                         border-bottom: 2px solid #fff;
                     }
                 }
@@ -570,14 +570,15 @@ body {
                     justify-content: center;
                     align-items: center;
                     cursor: pointer;
-                    &:hover{
-                    background-color: #fff;
+
+                    &:hover {
+                        background-color: #fff;
 
                     }
 
                 }
 
-                
+
             }
 
             .portfolio__list {
@@ -769,11 +770,17 @@ body {
                     background-color: #273971;
                     border-radius: 3px;
                     border: none;
-
+                    color: #fff;
+                    font-size: 17px;
+                    padding-left: 25px;
+                    outline: none;
+                    &:focus{
+                        color: #fff;
+                    font-size: 17px;
+                    }
                     &::placeholder {
                         color: #fff;
                         font-size: 17px;
-                        padding-left: 25px;
 
                     }
 
@@ -810,13 +817,13 @@ body {
                 border: 4px solid #2FB9E7;
                 border-bottom: 4px solid rgba(1, 1, 1, 0.14901960784313725);
 
-                &:hover{
+                &:hover {
                     color: #2FB9E7;
                     border: 4px solid #2FB9E7;
-    
+
                     transition: color border 0.5s;
                 }
-    
+
 
             }
         }
@@ -839,14 +846,15 @@ body {
             width: 1175px;
             justify-content: center;
 
-            
+
 
             div {
                 margin-left: 80px;
                 font-size: 27px;
                 cursor: pointer;
-                &:hover{
-                color: #58B0DB;
+
+                &:hover {
+                    color: #58B0DB;
 
                 }
 
