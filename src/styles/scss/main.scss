@@ -5,6 +5,15 @@
     border-radius: 3px;
     text-align: center;
     font-size: 20px;
+    cursor: pointer;
+    outline: none;
+
+    &:hover {
+        background-color: #fff;
+        transition: background-color 0.7s;
+    }
+
+
 }
 
 %heading {
@@ -75,13 +84,11 @@
 }
 
 
-// -- vars
 $bg-color: #000;
 $default-size: 1em;
 $label-font-size: $default-size / 4;
 $label-font-size-redo: $default-size * 4;
 
-// -- mixins
 @mixin size($width, $height) {
     height: $height;
     width: $width;
@@ -142,6 +149,7 @@ body {
             .logo {
                 height: 37px;
                 width: 118px;
+                cursor: pointer;
 
             }
 
@@ -154,10 +162,18 @@ body {
 
                 li {
                     color: #fff;
-                    padding-left: 50px;
+                    margin-left: 50px;
+                    cursor: pointer;
+                    border-bottom: 2px solid #864F9C;
+
+                    &:hover{
+                        border-bottom: 2px solid #fff;
+                    }
                 }
             }
         }
+
+
 
         .heading {
             @extend %heading;
@@ -167,10 +183,17 @@ body {
             @extend %button-shared;
             background-color: #EB7D4B;
             margin: 54px 0 146px 0;
+            border: 4px solid #EB7D4B;
+            border-bottom: 4px solid rgba(1, 1, 1, 0.14901960784313725);
 
-            border: #EB7D4B;
+            &:hover {
+                color: #EB7D4B;
+                border: 4px solid #EB7D4B;
 
+                transition: color border 1s;
+            }
         }
+
     }
 
     .services {
@@ -200,7 +223,6 @@ body {
             position: relative;
             margin-bottom: 91px;
             width: 1138px;
-            // height: 294px;
 
             img {
                 position: absolute;
@@ -251,7 +273,6 @@ body {
         background-color: #E7F1F8;
 
         .container {
-            // margin-bottom: 128px;
             padding: 0 200px 128px;
 
             .heading {
@@ -282,7 +303,25 @@ body {
                     color: #000000;
 
                     .photo {
-                        @include circle(#878787, 200px, 200px)
+                        @include circle(#878787, 200px, 200px);
+                        background-size: cover;
+                    }
+
+                    .anne {
+                        background-image: url(../../assets/images/Anne-Hathaway.jpg)
+                    }
+
+                    .kate {
+                        background-image: url(../../assets/images/kate.jpg)
+                    }
+
+                    .olivia {
+                        background-image: url(../../assets/images/Olivia-Wild.jpg);
+                        background-position-x: -20px;
+                    }
+
+                    .ashley {
+                        background-image: url(../../assets/images/Ashley_Greene.jpg)
                     }
 
                     h3 {
@@ -314,6 +353,8 @@ body {
                             display: flex;
                             justify-content: center;
                             align-items: center;
+                            cursor: pointer;
+
 
                             .linkedin {
                                 margin-bottom: 3px;
@@ -336,7 +377,6 @@ body {
         background-color: #FFFFFF;
 
         .container {
-            // margin-bottom: 128px;
             padding: 0 220px 119px;
 
             .heading {
@@ -481,21 +521,6 @@ body {
                     margin: 0;
                 }
 
-
-
-
-                // .percent {
-
-                //     position: absolute;
-                //     font-size: 45px;
-                //     top: 50px;
-                //     left: 50px;
-
-                //     span {
-                //         font-size: 35px;
-                //     }
-                // }
-
             }
 
 
@@ -544,11 +569,15 @@ body {
                     display: flex;
                     justify-content: center;
                     align-items: center;
+                    cursor: pointer;
+                    &:hover{
+                    background-color: #fff;
+
+                    }
+
                 }
 
-                .button:first-child {
-                    background-color: #fff;
-                }
+                
             }
 
             .portfolio__list {
@@ -561,6 +590,8 @@ body {
 
                     .block {
                         margin-top: 64px;
+                        cursor: pointer;
+
 
                         h3 {
                             @extend %h3;
@@ -584,8 +615,16 @@ body {
                 @extend %button-shared;
                 background-color: #17C1A3;
                 margin-top: 81px;
+                border: 4px solid #17C1A3;
+                border-bottom: 4px solid rgba(1, 1, 1, 0.14901960784313725);
 
-                border: #17C1A3;
+                &:hover {
+                    color: #17C1A3;
+                    border: 4px solid #17C1A3;
+
+                    transition: color border 0.5s;
+                }
+
 
             }
 
@@ -637,7 +676,28 @@ body {
                             @include circle(#777777, 96px, 96px);
                             margin-right: 48px;
                             flex: 1 0 auto;
+                            background-size: cover;
+
                         }
+
+                        .chanel {
+                            background-image: url(../../assets/images/Chanel.jpeg)
+                        }
+
+                        .anne {
+                            background-image: url(../../assets/images/Anne-Hathaway.jpg)
+                        }
+
+                        .adriana {
+                            background-image: url(../../assets/images/adriana.jpg)
+                        }
+
+                        .emma {
+                            background-image: url(../../assets/images/emma-stone-smiling-t.jpg);
+                            background-position-x: -30px;
+                        }
+
+
 
 
                         .comment--text {
@@ -680,7 +740,6 @@ body {
         background-color: #3C5399;
 
         .container {
-            // margin-bottom: 128px;
             padding: 0 220px 115px;
 
             .heading {
@@ -711,12 +770,12 @@ body {
                     border-radius: 3px;
                     border: none;
 
-                        &::placeholder {
-                            color: #fff;
-                            font-size: 17px;
-                            padding-left: 25px;
+                    &::placeholder {
+                        color: #fff;
+                        font-size: 17px;
+                        padding-left: 25px;
 
-                        }
+                    }
 
 
                 }
@@ -742,19 +801,22 @@ body {
                     margin-bottom: 59px;
                     padding-top: 23px;
 
-                    // &::placeholder{
-                    //     padding-bottom: 159px;
-
-                    // }
                 }
             }
 
             button {
                 @extend %button-shared;
                 background-color: #2FB9E7;
+                border: 4px solid #2FB9E7;
+                border-bottom: 4px solid rgba(1, 1, 1, 0.14901960784313725);
 
-
-                border: #2FB9E7;
+                &:hover{
+                    color: #2FB9E7;
+                    border: 4px solid #2FB9E7;
+    
+                    transition: color border 0.5s;
+                }
+    
 
             }
         }
@@ -777,13 +839,17 @@ body {
             width: 1175px;
             justify-content: center;
 
-            .twitter {
-                color: #58B0DB;
-            }
+            
 
             div {
                 margin-left: 80px;
                 font-size: 27px;
+                cursor: pointer;
+                &:hover{
+                color: #58B0DB;
+
+                }
+
             }
 
             div:first-child {
